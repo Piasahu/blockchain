@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blockchain & DeFi Dashboard — MBA Course</title>
+<meta name="description" content="Interactive educational dashboard for blockchain and DeFi concepts. MBA course material covering DEXs, protocols, institutional adoption, and Web3 social media.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+<!-- Highlight.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/solidity.min.js"></script>
+
+<link rel="stylesheet" href="./base.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- Mobile Header -->
+<div class="mobile-header">
+  <button class="hamburger" id="menuToggle" aria-label="Open menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <span style="font-size:var(--text-sm);font-weight:700;color:var(--color-text)">Blockchain Dashboard</span>
+  <button class="hamburger" data-theme-toggle aria-label="Toggle theme" id="mobileThemeToggle">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="dashboard">
+
+<!-- ==================== SIDEBAR ==================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <svg class="sidebar-logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Blockchain Dashboard Logo">
+      <rect width="36" height="36" rx="8" fill="var(--color-primary)"/>
+      <path d="M18 8L26 12.5V21.5L18 26L10 21.5V12.5L18 8Z" stroke="white" stroke-width="1.5" fill="none"/>
+      <circle cx="18" cy="8" r="2" fill="white"/>
+      <circle cx="26" cy="12.5" r="2" fill="white"/>
+      <circle cx="26" cy="21.5" r="2" fill="white"/>
+      <circle cx="18" cy="26" r="2" fill="white"/>
+      <circle cx="10" cy="21.5" r="2" fill="white"/>
+      <circle cx="10" cy="12.5" r="2" fill="white"/>
+      <circle cx="18" cy="17" r="2.5" fill="white"/>
+      <line x1="18" y1="8" x2="18" y2="17" stroke="white" stroke-width="1" opacity="0.5"/>
+      <line x1="26" y1="12.5" x2="18" y2="17" stroke="white" stroke-width="1" opacity="0.5"/>
+      <line x1="26" y1="21.5" x2="18" y2="17" stroke="white" stroke-width="1" opacity="0.5"/>
+      <line x1="18" y1="26" x2="18" y2="17" stroke="white" stroke-width="1" opacity="0.5"/>
+      <line x1="10" y1="21.5" x2="18" y2="17" stroke="white" stroke-width="1" opacity="0.5"/>
+      <line x1="10" y1="12.5" x2="18" y2="17" stroke="white" stroke-width="1" opacity="0.5"/>
+    </svg>
+    <div class="sidebar-brand">
+      <h1>Blockchain & DeFi</h1>
+      <span>MBA Course Dashboard</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section">
+      <span class="nav-section-label">Main</span>
+      <a href="#overview" class="nav-item active" data-section="overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Overview
+      </a>
+      <a href="#dexs" class="nav-item" data-section="dexs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        DEXs
+      </a>
+      <a href="#protocols" class="nav-item" data-section="protocols">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        Uniswap & Aave
+      </a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Ecosystem</span>
+      <a href="#tradfi" class="nav-item" data-section="tradfi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Institutional / TradFi
+      </a>
+      <a href="#web3social" class="nav-item" data-section="web3social">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Web3 Social
+      </a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference</span>
+      <a href="#resources" class="nav-item" data-section="resources">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Resources & Glossary
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="theme-toggle" data-theme-toggle id="themeToggle" aria-label="Switch to light mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <span>Light Mode</span>
+    </button>
+  </div>
+</aside>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="main" id="mainContent">
+
+<!-- ==================== SECTION 1: OVERVIEW ==================== -->
+<section class="section active" id="overview">
+  <div class="section-header">
+    <h2>DeFi Market Overview</h2>
+    <p>Real-time snapshot of the decentralized finance ecosystem — Total Value Locked, trading volumes, users, and protocol dominance.</p>
+    <a href="https://defillama.com/" target="_blank" rel="noopener noreferrer" class="source-link">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Data from DefiLlama
+    </a>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card" data-accent="blue">
+      <div class="kpi-label">DeFi TVL (ATH 2025)</div>
+      <div class="kpi-value" data-counter="225">$0B</div>
+      <div class="kpi-delta up">&#9650; Surpassed 2021 peak of $204B</div>
+    </div>
+    <div class="kpi-card" data-accent="green">
+      <div class="kpi-label">DEX Volume (24h)</div>
+      <div class="kpi-value" data-counter="8.34">$0B</div>
+      <div class="kpi-delta up">&#9650; 7d: $61.7B</div>
+    </div>
+    <div class="kpi-card" data-accent="purple">
+      <div class="kpi-label">Unique DeFi Users</div>
+      <div class="kpi-value" data-counter="27.7">0M</div>
+      <div class="kpi-delta up">&#9650; 300-390M monthly active</div>
+    </div>
+    <div class="kpi-card" data-accent="amber">
+      <div class="kpi-label">Stablecoin Market</div>
+      <div class="kpi-value" data-counter="307">$0B</div>
+      <div class="kpi-delta up">&#9650; Projected $500B by 2028</div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h3>Chain TVL Distribution <span class="badge">Live Data</span></h3>
+      <div class="chart-wrapper" style="height:380px">
+        <canvas id="chainTvlChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <h3>Top Protocols by TVL <span class="badge">Top 6</span></h3>
+      <div class="chart-wrapper" style="height:380px">
+        <canvas id="protocolTvlChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional KPIs -->
+  <div class="kpi-grid" style="margin-bottom:0">
+    <div class="kpi-card" data-accent="cyan">
+      <div class="kpi-label">DeFi Market Size (2025)</div>
+      <div class="kpi-value">$26.94B</div>
+      <div class="kpi-delta up">&#9650; 68.2% CAGR to 2033</div>
+    </div>
+    <div class="kpi-card" data-accent="red">
+      <div class="kpi-label">Exploited Funds (2025)</div>
+      <div class="kpi-value">$512M</div>
+      <div class="kpi-delta down">&#9660; Security remains critical</div>
+    </div>
+    <div class="kpi-card" data-accent="green">
+      <div class="kpi-label">Lending Market Share</div>
+      <div class="kpi-value">27.33%</div>
+      <div class="kpi-delta up">&#9650; Largest DeFi vertical</div>
+    </div>
+    <div class="kpi-card" data-accent="purple">
+      <div class="kpi-label">Perp DEX Volume (2025)</div>
+      <div class="kpi-value">$6.7T</div>
+      <div class="kpi-delta up">&#9650; 346% growth ATH</div>
+    </div>
+  </div>
+
+  <div class="dashboard-footer">
+    <p>Data sourced from <a href="https://defillama.com/" target="_blank" rel="noopener noreferrer">DefiLlama</a> and <a href="https://www.mexc.com/" target="_blank" rel="noopener noreferrer">MEXC Research</a> (Feb 2026). </p>
+
+      <p style="margin-top:var(--space-2)">Created by Saswat.lens. Please refer to <a href="https://paragraph.com/@latam" target="_blank" rel="noopener noreferrer">paragraph.com/@latam</a> for our next class.</p>
+  </div>
+</section>
+
+<!-- ==================== SECTION 2: DEXs ==================== -->
+<section class="section" id="dexs">
+  <div class="section-header">
+    <h2>Decentralized Exchanges (DEXs)</h2>
+    <p>How trustless trading works — from Automated Market Makers to on-chain order books and aggregators.</p>
+  </div>
+
+  <!-- Definition -->
+  <div class="definition-box">
+    <h3>What are DEXs?</h3>
+    <p>Decentralized Exchanges allow users to trade cryptocurrencies directly from their wallets without a centralized intermediary. Unlike Coinbase or Binance, DEXs use smart contracts to execute trades, providing trustless, permissionless, and non-custodial trading.</p>
+    <p>The two primary models are <strong>Automated Market Makers (AMMs)</strong>, which use liquidity pools and mathematical formulas to determine prices, and <strong>Order Books</strong>, which match buyers and sellers like traditional exchanges but operate on-chain.</p>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card" data-accent="blue">
+      <div class="kpi-label">24h Volume</div>
+      <div class="kpi-value">$8.34B</div>
+    </div>
+    <div class="kpi-card" data-accent="green">
+      <div class="kpi-label">7d Volume</div>
+      <div class="kpi-value">$61.7B</div>
+    </div>
+    <div class="kpi-card" data-accent="purple">
+      <div class="kpi-label">30d Volume</div>
+      <div class="kpi-value">$288B</div>
+    </div>
+    <div class="kpi-card" data-accent="amber">
+      <div class="kpi-label">All-time Volume</div>
+      <div class="kpi-value">$12.4T</div>
+    </div>
+  </div>
+
+  <!-- Types of DEXs -->
+  <h3 class="subsection-heading">Types of DEXs</h3>
+  <div class="content-grid" style="grid-template-columns: repeat(3, 1fr)">
+    <div class="content-card">
+      <h3><span style="color:var(--color-primary)">&#9679;</span> AMM-Based</h3>
+      <p>Use liquidity pools and the constant product formula (x*y=k) to enable trading without order books.</p>
+      <span class="tag">Uniswap</span>
+      <span class="tag">Curve</span>
+      <span class="tag">SushiSwap</span>
+      <span class="tag">Balancer</span>
+    </div>
+    <div class="content-card">
+      <h3><span style="color:var(--color-purple)">&#9679;</span> Order Book</h3>
+      <p>On-chain or hybrid order matching engines that provide familiar limit order functionality.</p>
+      <span class="tag">dYdX</span>
+      <span class="tag">Hyperliquid</span>
+      <span class="tag">Serum</span>
+    </div>
+    <div class="content-card">
+      <h3><span style="color:var(--color-green)">&#9679;</span> Aggregators</h3>
+      <p>Route trades across multiple DEXs to find the best price and minimize slippage.</p>
+      <span class="tag">1inch</span>
+      <span class="tag">Paraswap</span>
+      <span class="tag">CoW Swap</span>
+    </div>
+  </div>
+
+  <!-- DEX Volume Chart -->
+  <div class="chart-full">
+    <h3>Top DEXs by 24h Volume</h3>
+    <div class="chart-wrapper" style="height:320px">
+      <canvas id="dexVolumeChart"></canvas>
+    </div>
+  </div>
+
+  <!-- AMM Formula -->
+  <div class="formula-box">
+    <div class="formula">x &times; y = k</div>
+    <p>Constant Product Formula — the invariant that governs AMM pricing. As supply of token x increases, supply of token y decreases proportionally.</p>
+  </div>
+
+  <!-- Code Block: AMM Swap -->
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <span>AMM Swap — Solidity</span>
+    </div>
+    <pre><code class="language-solidity">// Constant Product AMM
+// x * y = k (invariant)
+function getAmountOut(
+    uint amountIn,
+    uint reserveIn,
+    uint reserveOut
+) public pure returns (uint amountOut) {
+    uint amountInWithFee = amountIn * 997;
+    uint numerator = amountInWithFee * reserveOut;
+    uint denominator = (reserveIn * 1000) + amountInWithFee;
+    amountOut = numerator / denominator;
+}</code></pre>
+  </div>
+
+  <!-- Impermanent Loss -->
+  <div class="collapsible" id="ilCollapsible">
+    <div class="collapsible-header" onclick="toggleCollapsible('ilCollapsible')">
+      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-amber)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Impermanent Loss (IL)</h3>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="collapsible-body">
+      <div class="collapsible-body-inner">
+        <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3)"><strong>Impermanent Loss</strong> occurs when the price of tokens in a liquidity pool diverges from their price at deposit time. The loss is "impermanent" because it reverses if prices return to original ratios.</p>
+        <div class="formula-box" style="margin-bottom:var(--space-3)">
+          <div class="formula" style="font-size:var(--text-base)">IL = 2&radic;(p) / (1 + p) - 1</div>
+          <p>where p = price ratio change. At 2x price change, IL &asymp; 5.7%. At 5x, IL &asymp; 25.5%.</p>
+        </div>
+        <p style="font-size:var(--text-xs);color:var(--color-text-faint)">Liquidity providers earn trading fees to offset IL. For volatile pairs, IL can exceed fee income.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-footer">
+    <p>Data from <a href="https://defillama.com/dexs" target="_blank" rel="noopener noreferrer">DefiLlama DEX Tracker</a>. </p>
+
+      <p style="margin-top:var(--space-2)">Created by Saswat.lens. Please refer to <a href="https://paragraph.com/@latam" target="_blank" rel="noopener noreferrer">paragraph.com/@latam</a> for our next class.</p>
+  </div>
+</section>
+
+<!-- ==================== SECTION 3: PROTOCOLS (Uniswap & Aave) ==================== -->
+<section class="section" id="protocols">
+  <div class="section-header">
+    <h2>Deep Dives: Uniswap & Aave</h2>
+    <p>The two most important DeFi primitives — decentralized trading and lending/borrowing.</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="uniswap" onclick="switchTab('protocols', 'uniswap')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Uniswap
+    </button>
+    <button class="tab-btn" data-tab="aave" onclick="switchTab('protocols', 'aave')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      Aave
+    </button>
+  </div>
+
+  <!-- UNISWAP TAB -->
+  <div class="tab-content active" data-tabcontent="uniswap">
+    <h3 class="subsection-heading">Version Evolution</h3>
+    <div class="version-grid">
+      <div class="version-card">
+        <h4>V1</h4>
+        <div class="version-year">2018</div>
+        <p>First AMM on Ethereum. ETH-only pairs. Proof of concept.</p>
+      </div>
+      <div class="version-card">
+        <h4>V2</h4>
+        <div class="version-year">2020</div>
+        <p>ERC-20/ERC-20 pairs. Flash swaps. Price oracles.</p>
+      </div>
+      <div class="version-card">
+        <h4>V3</h4>
+        <div class="version-year">2021</div>
+        <p>Concentrated liquidity. Multiple fee tiers. Up to 4000x capital efficiency.</p>
+      </div>
+      <div class="version-card current">
+        <span class="current-badge">Current</span>
+        <h4>V4</h4>
+        <div class="version-year">2024-25</div>
+        <p>Hooks, Singleton architecture, Flash Accounting, Native ETH.</p>
+      </div>
+    </div>
+
+    <h3 class="subsection-heading">V4 Hooks Architecture</h3>
+    <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4)">Hooks are smart contract plugins that execute at specific points in a pool's lifecycle. They enable fully customizable pool logic.</p>
+
+    <div class="hook-flow">
+      <div class="hook-step before">beforeInitialize</div>
+      <span class="hook-arrow">&#8594;</span>
+      <div class="hook-step after">afterInitialize</div>
+      <span class="hook-arrow">&#8594;</span>
+      <div class="hook-step before">beforeSwap</div>
+      <span class="hook-arrow">&#8594;</span>
+      <div class="hook-step after">afterSwap</div>
+      <span class="hook-arrow">&#8594;</span>
+      <div class="hook-step before">beforeModifyPosition</div>
+      <span class="hook-arrow">&#8594;</span>
+      <div class="hook-step after">afterModifyPosition</div>
+    </div>
+
+    <h3 class="subsection-heading">Hook Examples</h3>
+    <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))">
+      <div class="content-card" style="padding:var(--space-4);text-align:center">
+        <h3 style="font-size:var(--text-sm);justify-content:center">Dynamic Fees</h3>
+        <p style="font-size:var(--text-xs);text-align:center;max-width:100%">Adjust fees based on volatility or pool conditions</p>
+      </div>
+      <div class="content-card" style="padding:var(--space-4);text-align:center">
+        <h3 style="font-size:var(--text-sm);justify-content:center">Limit Orders</h3>
+        <p style="font-size:var(--text-xs);text-align:center;max-width:100%">On-chain limit orders natively in the AMM</p>
+      </div>
+      <div class="content-card" style="padding:var(--space-4);text-align:center">
+        <h3 style="font-size:var(--text-sm);justify-content:center">TWAMM</h3>
+        <p style="font-size:var(--text-xs);text-align:center;max-width:100%">Time-weighted average market maker for large orders</p>
+      </div>
+      <div class="content-card" style="padding:var(--space-4);text-align:center">
+        <h3 style="font-size:var(--text-sm);justify-content:center">Custom Oracles</h3>
+        <p style="font-size:var(--text-xs);text-align:center;max-width:100%">Integrate any price feed directly into pools</p>
+      </div>
+      <div class="content-card" style="padding:var(--space-4);text-align:center">
+        <h3 style="font-size:var(--text-sm);justify-content:center">MEV Redistribution</h3>
+        <p style="font-size:var(--text-xs);text-align:center;max-width:100%">Capture and return MEV to liquidity providers</p>
+      </div>
+    </div>
+
+    <h3 class="subsection-heading">Key Innovations</h3>
+    <div class="content-grid">
+      <div class="content-card">
+        <h3><span style="color:var(--color-primary)">&#9670;</span> Singleton Architecture</h3>
+        <p>All pools live in a single smart contract, reducing deployment costs by <strong>99%</strong>. Gas savings for multi-hop swaps are significant since tokens stay in the same contract.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-green)">&#9670;</span> Flash Accounting</h3>
+        <p>Token transfers only settle on net balances at the end of a transaction. Intermediate operations don't require actual token movement, reducing gas costs dramatically.</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))">
+      <div class="kpi-card" data-accent="blue">
+        <div class="kpi-label">Hook-Enabled Pools</div>
+        <div class="kpi-value">2,500+</div>
+      </div>
+      <div class="kpi-card" data-accent="purple">
+        <div class="kpi-label">Different Hooks</div>
+        <div class="kpi-value">~100</div>
+      </div>
+      <div class="kpi-card" data-accent="green">
+        <div class="kpi-label">Cost Reduction</div>
+        <div class="kpi-value">99%</div>
+      </div>
+    </div>
+
+    <!-- Uniswap Code -->
+    <div class="code-block" style="margin-top:var(--space-6)">
+      <div class="code-block-header">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <span>Uniswap V4 Hook Interface — Solidity</span>
+      </div>
+      <pre><code class="language-solidity">// Uniswap V4 Hook Interface (Simplified)
+interface IHooks {
+    function beforeSwap(
+        address sender,
+        PoolKey calldata key,
+        IPoolManager.SwapParams calldata params
+    ) external returns (bytes4);
+
+    function afterSwap(
+        address sender,
+        PoolKey calldata key,
+        IPoolManager.SwapParams calldata params,
+        BalanceDelta delta
+    ) external returns (bytes4);
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- AAVE TAB -->
+  <div class="tab-content" data-tabcontent="aave">
+    <div class="kpi-grid">
+      <div class="kpi-card" data-accent="purple">
+        <div class="kpi-label">Total Value Locked</div>
+        <div class="kpi-value">$24.4B</div>
+        <div class="kpi-delta up">&#9650; +19.78%</div>
+      </div>
+      <div class="kpi-card" data-accent="blue">
+        <div class="kpi-label">Active Chains</div>
+        <div class="kpi-value">13</div>
+      </div>
+      <div class="kpi-card" data-accent="green">
+        <div class="kpi-label">Protocol Type</div>
+        <div class="kpi-value" style="font-size:var(--text-lg)">Lending</div>
+      </div>
+      <div class="kpi-card" data-accent="amber">
+        <div class="kpi-label">Market Position</div>
+        <div class="kpi-value" style="font-size:var(--text-lg)">#1</div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <h3 class="subsection-heading">How Lending/Borrowing Works</h3>
+    <div class="diagram-card">
+      <h3>Aave Lending Flow</h3>
+      <div class="flow-diagram">
+        <div class="flow-box primary">Deposit Asset</div>
+        <span class="flow-arrow">&#8594;</span>
+        <div class="flow-box green">Receive aTokens</div>
+        <span class="flow-arrow">&#8594;</span>
+        <div class="flow-box purple">Interest Accrues</div>
+        <span class="flow-arrow">&#8594;</span>
+        <div class="flow-box amber">Withdraw + Yield</div>
+      </div>
+    </div>
+
+    <h3 class="subsection-heading">Key Features</h3>
+    <div class="content-grid">
+      <div class="content-card">
+        <h3><span style="color:var(--color-amber)">&#9889;</span> Flash Loans</h3>
+        <p>Borrow any amount without collateral — as long as you repay within the <strong>same block (~12 seconds)</strong>. Used for arbitrage, liquidations, and collateral swaps. Fee: 0.05%.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-green)">&#9679;</span> GHO Stablecoin</h3>
+        <p>Aave's native decentralized stablecoin. Minted against deposited collateral. Used for operational funding and DeFi composability.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-purple)">&#9632;</span> E-Mode</h3>
+        <p>Efficiency Mode allows higher LTV for correlated assets (e.g., stETH/ETH). Capital-efficient borrowing for same-category tokens.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-primary)">&#9670;</span> V4 Preview (2026)</h3>
+        <p>Hub-and-spoke architecture with a unified liquidity layer. Central Liquidity Hub with specialized Spokes per chain for RWAs, institutional desks, and volatile collateral.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-cyan)">&#9733;</span> Horizon</h3>
+        <p>Regulated RWA (Real World Assets) lending market designed for institutional participants. Bridges TradFi and DeFi with compliance.</p>
+      </div>
+    </div>
+
+    <!-- Flash Loan Code -->
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <span>Flash Loan Example — Solidity</span>
+      </div>
+      <pre><code class="language-solidity">// Aave Flash Loan (Simplified)
+contract FlashLoanExample {
+    function executeFlashLoan(
+        address asset,
+        uint256 amount
+    ) external {
+        // 1. Borrow from Aave pool
+        pool.flashLoan(
+            address(this), asset, amount, ""
+        );
+    }
+
+    function executeOperation(
+        address asset,
+        uint256 amount,
+        uint256 premium
+    ) external returns (bool) {
+        // 2. Use funds (arbitrage, liquidation, etc.)
+        // ... your logic here ...
+
+        // 3. Repay loan + 0.05% fee
+        IERC20(asset).approve(
+            address(pool), amount + premium
+        );
+        return true;
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="dashboard-footer">
+    <p>Learn more: <a href="https://docs.uniswap.org/" target="_blank" rel="noopener noreferrer">Uniswap Docs</a> &middot; <a href="https://docs.aave.com/" target="_blank" rel="noopener noreferrer">Aave Docs</a></p>
+
+      <p style="margin-top:var(--space-2)">Created by Saswat.lens. Please refer to <a href="https://paragraph.com/@latam" target="_blank" rel="noopener noreferrer">paragraph.com/@latam</a> for our next class.</p>
+  </div>
+</section>
+
+<!-- ==================== SECTION 4: INSTITUTIONAL / TradFi ==================== -->
+<section class="section" id="tradfi">
+  <div class="section-header">
+    <h2>Institutional Adoption & TradFi</h2>
+    <p>How Wall Street is embracing blockchain — RWA tokenization, stablecoin regulation, and the convergence of traditional and decentralized finance.</p>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card" data-accent="blue">
+      <div class="kpi-label">Tokenized RWA Market</div>
+      <div class="kpi-value">$23B</div>
+      <div class="kpi-delta up">&#9650; 260% growth</div>
+    </div>
+    <div class="kpi-card" data-accent="green">
+      <div class="kpi-label">Stablecoin Market</div>
+      <div class="kpi-value">$307B</div>
+      <div class="kpi-delta up">&#9650; $500B projected by 2028</div>
+    </div>
+    <div class="kpi-card" data-accent="purple">
+      <div class="kpi-label">ETH RWA Share</div>
+      <div class="kpi-value">65%</div>
+      <div class="kpi-delta up">&#9650; ~$12.5B in tokenized RWAs</div>
+    </div>
+    <div class="kpi-card" data-accent="amber">
+      <div class="kpi-label">Institutional Adoption</div>
+      <div class="kpi-value">75%+</div>
+      <div class="kpi-delta up">&#9650; Planned to increase crypto</div>
+    </div>
+  </div>
+
+  <!-- Key Players -->
+  <h3 class="subsection-heading">Key Players</h3>
+  <div class="player-grid">
+    <div class="player-card">
+      <div class="player-icon" style="background:var(--color-surface-2);color:var(--color-text)">BR</div>
+      <h4>BlackRock</h4>
+      <div class="player-product">BUIDL Fund</div>
+      <p>$2B+ AUM in tokenized US Treasuries across Ethereum, Solana, and Polygon. Distributed $100M+ in dividends.</p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon" style="background:var(--color-surface-2);color:var(--color-text)">JP</div>
+      <h4>JPMorgan</h4>
+      <div class="player-product">MONY Token</div>
+      <p>Launched tokenized money market fund (Dec 2025). Active in Canton Network for 24/7 Treasury financing.</p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon" style="background:var(--color-surface-2);color:var(--color-text)">FT</div>
+      <h4>Franklin Templeton</h4>
+      <div class="player-product">BENJI</div>
+      <p>Tokenized government money fund on-chain. Early mover in RWA tokenization for retail and institutional.</p>
+    </div>
+    <div class="player-card">
+      <div class="player-icon" style="background:var(--color-surface-2);color:var(--color-text)">CC</div>
+      <h4>Circle</h4>
+      <div class="player-product">USYC / USDC</div>
+      <p>USYC flipped BUIDL in TVL early 2026. $1B IPO in 2025. Major stablecoin issuer (USDC).</p>
+    </div>
+  </div>
+
+  <!-- GENIUS Act -->
+  <div class="collapsible open" id="geniusCollapsible">
+    <div class="collapsible-header" onclick="toggleCollapsible('geniusCollapsible')">
+      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> GENIUS Act (July 2025)</h3>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="collapsible-body">
+      <div class="collapsible-body-inner">
+        <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3)">The <strong>GENIUS Act</strong> (Guiding and Establishing National Innovation for U.S. Stablecoins) is the first US federal stablecoin framework. Key provisions:</p>
+        <ul class="feature-list">
+          <li><span class="bullet">&#8226;</span> Federal licensing framework for stablecoin issuers</li>
+          <li><span class="bullet">&#8226;</span> Reserve requirements: 1:1 backing with high-quality liquid assets</li>
+          <li><span class="bullet">&#8226;</span> Consumer protection standards and transparency requirements</li>
+          <li><span class="bullet">&#8226;</span> Regulatory clarity for payment stablecoins vs. algorithmic stablecoins</li>
+          <li><span class="bullet">&#8226;</span> Expected to accelerate institutional adoption of stablecoins</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="blockquote">
+    <p>"Where government debt fails, the digital economy begins."</p>
+    <cite>— BlackRock, 2026 Outlook</cite>
+  </div>
+
+  <!-- Institutional Timeline -->
+  <h3 class="subsection-heading">Institutional Milestones</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">Jan 2025</div>
+      <h4>OCBC Digital Bonds</h4>
+      <p>First tokenized bond issuance by a major Asian bank</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Jul 2025</div>
+      <h4>GENIUS Act Passed</h4>
+      <p>First US federal stablecoin regulatory framework</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Aug 2025</div>
+      <h4>Canton Network Launch</h4>
+      <p>24/7 US Treasury financing — BofA, Citadel, DTCC, SocGen</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Dec 2025</div>
+      <h4>Standard Chartered Deposits</h4>
+      <p>Tokenized deposits in HKD, USD, SGD</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">Jan 2026</div>
+      <h4>BNY Mellon Tokenized Deposits</h4>
+      <p>With Citadel Securities, Ripple, Circle</p>
+    </div>
+  </div>
+
+  <!-- TradFi-DeFi Convergence -->
+  <h3 class="subsection-heading">TradFi-DeFi Convergence</h3>
+  <div class="convergence-diagram">
+    <div class="convergence-layer institutional">
+      <h4 style="color:var(--color-purple)">Permissioned Institutional Layer</h4>
+      <div class="items">
+        <span>BlackRock BUIDL</span>
+        <span>JPMorgan MONY</span>
+        <span>Canton Network</span>
+        <span>BNY Mellon</span>
+        <span>Goldman Sachs</span>
+      </div>
+    </div>
+    <div class="convergence-layer bridge">
+      <h4 style="color:var(--color-amber)">Bridge Layer — Compliance & Interoperability</h4>
+      <div class="items">
+        <span>GENIUS Act</span>
+        <span>KYC/AML Oracles</span>
+        <span>Aave Horizon</span>
+        <span>RWA Protocols</span>
+      </div>
+    </div>
+    <div class="convergence-layer defi">
+      <h4 style="color:var(--color-primary)">Permissionless DeFi Layer</h4>
+      <div class="items">
+        <span>Uniswap</span>
+        <span>Aave</span>
+        <span>MakerDAO</span>
+        <span>Lido</span>
+        <span>Curve</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== RWA DEEP DIVE ==================== -->
+  <h3 class="subsection-heading">RWA Deep Dive</h3>
+
+  <div class="definition-box">
+    <h3>What are Real World Assets (RWAs)?</h3>
+    <p><strong>Real World Assets (RWAs)</strong> are traditional financial assets — bonds, equities, real estate, commodities — tokenized on blockchain. By representing ownership as on-chain tokens, RWAs unlock 24/7 trading, fractional ownership, instant settlement, and global access.</p>
+    <p>The RWA market has reached <strong>$23B+</strong> with <strong>260% growth in 2025</strong>. Analysts expect it to <strong>4x in 2026</strong>, and BCG forecasts <strong>$16.1T by 2030</strong>.</p>
+  </div>
+
+  <div class="blockquote">
+    <p>"Tokenization of real-world assets will revolutionize finance with instant settlements and 24/7 global access."</p>
+    <cite>— SEC Chair Paul Atkins, 2025</cite>
+  </div>
+
+  <!-- RWA Categories -->
+  <h3 class="subsection-heading">RWA Categories</h3>
+  <div class="rwa-categories">
+    <span class="rwa-category">Tokenized Treasuries <span class="rwa-value">&gt;$10B</span></span>
+    <span class="rwa-category">Private Credit</span>
+    <span class="rwa-category">Real Estate</span>
+    <span class="rwa-category">Commodities</span>
+    <span class="rwa-category">Equities</span>
+  </div>
+
+  <!-- Ondo Finance Deep Dive -->
+  <div class="ondo-header">
+    <h3>Ondo Finance — Leading RWA Protocol</h3>
+    <p class="ondo-subtitle">Largest provider of tokenized Treasuries and tokenized stocks, bridging TradFi and DeFi.</p>
+    <div class="ondo-stats-row">
+      <div class="ondo-stat">
+        <div class="stat-value">$2.5B+</div>
+        <div class="stat-label">Total TVL</div>
+      </div>
+      <div class="ondo-stat">
+        <div class="stat-value">200+</div>
+        <div class="stat-label">Tokenized Stocks</div>
+      </div>
+      <div class="ondo-stat">
+        <div class="stat-value">9</div>
+        <div class="stat-label">Blockchains</div>
+      </div>
+      <div class="ondo-stat">
+        <div class="stat-value">$7B+</div>
+        <div class="stat-label">Trading Volume</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ondo Products -->
+  <h3 class="subsection-heading">Ondo Products</h3>
+  <div class="product-grid">
+    <div class="product-card">
+      <span class="product-badge" style="background:var(--color-primary-glow);color:var(--color-primary)">Treasury</span>
+      <h4>USDY</h4>
+      <div class="product-tvl">$1B+ TVL</div>
+      <p>Permissionless tokenized US Treasury token. Stablecoin-like with yield, available on 9 blockchains. Designed for global non-US investors.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-badge" style="background:var(--color-purple-glow);color:var(--color-purple)">Institutional</span>
+      <h4>OUSG</h4>
+      <div class="product-tvl">$770M+ TVL</div>
+      <p>Institutional tokenized Treasury fund with 24/7 subscriptions and redemptions. Backed by BlackRock BUIDL, Fidelity FDIT, Franklin Templeton BENJI.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-badge" style="background:var(--color-green-glow);color:var(--color-green)">Equities</span>
+      <h4>Ondo Global Markets</h4>
+      <div class="product-tvl">$500M+ TVL</div>
+      <p>200+ tokenized stocks including SPYon, QQQon, TSLAon. $7B+ cumulative trading volume since Sep 2025. &gt;50% market share. Chainlink oracles.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-badge" style="background:var(--color-amber-glow);color:var(--color-amber)">Commodities</span>
+      <h4>Tokenized Commodities</h4>
+      <div class="product-tvl">Emerging</div>
+      <p>Gold (XAUT) and Silver (SLVON) gaining traction as tokenized commodity instruments on-chain.</p>
+    </div>
+  </div>
+
+  <!-- Partnerships -->
+  <h3 class="subsection-heading">Key Partnerships</h3>
+  <div class="partnerships-row">
+    <span class="partnership-badge">BlackRock</span>
+    <span class="partnership-badge">Fidelity</span>
+    <span class="partnership-badge">Franklin Templeton</span>
+    <span class="partnership-badge">WisdomTree</span>
+    <span class="partnership-badge">DTCC</span>
+    <span class="partnership-badge">Mastercard</span>
+    <span class="partnership-badge">21Shares (ETF filing)</span>
+  </div>
+
+  <!-- RWA Ecosystem Chart -->
+  <div class="chart-full">
+    <h3>RWA Ecosystem by TVL <span class="badge" style="font-size:0.6875rem;padding:3px 8px;border-radius:9999px;background:rgba(59,130,246,0.2);color:#60a5fa;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-left:8px">2026</span></h3>
+    <div class="chart-wrapper" style="height:320px">
+      <canvas id="rwaEcosystemChart"></canvas>
+    </div>
+  </div>
+
+  <div class="dashboard-footer">
+    <p>Data from multiple sources including <a href="https://defillama.com/" target="_blank" rel="noopener noreferrer">DefiLlama</a>, BlackRock reports, <a href="https://ondo.finance/" target="_blank" rel="noopener noreferrer">Ondo Finance</a>, and regulatory filings.</p>
+
+      <p style="margin-top:var(--space-2)">Created by Saswat.lens. Please refer to <a href="https://paragraph.com/@latam" target="_blank" rel="noopener noreferrer">paragraph.com/@latam</a> for our next class.</p>
+  </div>
+</section>
+
+<!-- ==================== SECTION 5: WEB3 SOCIAL ==================== -->
+<section class="section" id="web3social">
+  <div class="section-header">
+    <h2>Web3 Social Media</h2>
+    <p>The emerging decentralized social layer — data ownership, composable social graphs, and creator monetization.</p>
+  </div>
+
+  <!-- Market KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card" data-accent="blue">
+      <div class="kpi-label">Market Size (2025)</div>
+      <div class="kpi-value">$18.5B</div>
+    </div>
+    <div class="kpi-card" data-accent="green">
+      <div class="kpi-label">Projected (2035)</div>
+      <div class="kpi-value">$141.6B</div>
+    </div>
+    <div class="kpi-card" data-accent="purple">
+      <div class="kpi-label">SocialFi Token Cap</div>
+      <div class="kpi-value">$2.4B</div>
+    </div>
+    <div class="kpi-card" data-accent="amber">
+      <div class="kpi-label">Growth Rate</div>
+      <div class="kpi-value" style="font-size:var(--text-lg)">~22% CAGR</div>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <h3 class="subsection-heading">Farcaster vs Lens Protocol</h3>
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Farcaster</th>
+          <th>Lens Protocol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Architecture</strong></td>
+          <td>Hub network (off-chain messages + on-chain IDs)</td>
+          <td>Social Graph NFTs on ZK Stack chain</td>
+        </tr>
+        <tr>
+          <td><strong>Users (DAU)</strong></td>
+          <td>40K-60K (peaked 80K)</td>
+          <td>&lt;100K sustained</td>
+        </tr>
+        <tr>
+          <td><strong>Funding</strong></td>
+          <td>$180M raised, $1B valuation</td>
+          <td>$60M+ raised total</td>
+        </tr>
+        <tr>
+          <td><strong>Key Features</strong></td>
+          <td>Frames/Mini Apps, Pro subscription</td>
+          <td>Open Actions, Gasless txns (GHO)</td>
+        </tr>
+        <tr>
+          <td><strong>Revenue</strong></td>
+          <td>$2.8M (May 2025) + Pro subs</td>
+          <td>Protocol fees + NFT marketplace</td>
+        </tr>
+        <tr>
+          <td><strong>Chain</strong></td>
+          <td>Optimism (OP Mainnet)</td>
+          <td>Lens Chain (ZK Stack by Matter Labs)</td>
+        </tr>
+        <tr>
+          <td><strong>2026 News</strong></td>
+          <td>BNB Chain integration (4.7M DAU access)</td>
+          <td>Acquired by Mask Network (Jan 2026)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TABBED INTERFACE: Farcaster / Lens / Base App -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="farcaster" onclick="switchTab('web3social', 'farcaster')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+      Farcaster
+    </button>
+    <button class="tab-btn" data-tab="lens" onclick="switchTab('web3social', 'lens')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Lens Protocol
+    </button>
+    <button class="tab-btn" data-tab="baseapp" onclick="switchTab('web3social', 'baseapp')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Base App (L2)
+    </button>
+  </div>
+
+  <!-- FARCASTER TAB -->
+  <div class="tab-content active" data-tabcontent="farcaster">
+    <div class="content-card" style="margin-bottom:var(--space-6)">
+      <h3><span style="color:var(--color-purple)">&#9830;</span> Farcaster</h3>
+      <ul class="feature-list">
+        <li><span class="bullet">&#8226;</span> <strong>Frames/Mini Apps</strong>: Interactive apps embedded directly in social feed posts</li>
+        <li><span class="bullet">&#8226;</span> <strong>Farcaster Pro</strong>: $120/yr subscription — 10K subs in 6 hours = $1.2M</li>
+        <li><span class="bullet">&#8226;</span> <strong>Warpcast Rewards</strong>: $25K+/week in USDC distributed to creators</li>
+        <li><span class="bullet">&#8226;</span> <strong>BNB Chain Integration</strong>: October 2025, opened to 4.7M DAU</li>
+        <li><span class="bullet">&#8226;</span> Valued at $1B with $180M raised</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LENS PROTOCOL TAB -->
+  <div class="tab-content" data-tabcontent="lens">
+    <div class="content-card" style="margin-bottom:var(--space-6)">
+      <h3><span style="color:var(--color-green)">&#9830;</span> Lens Protocol</h3>
+      <ul class="feature-list">
+        <li><span class="bullet">&#8226;</span> <strong>Social Graph NFTs</strong>: Profiles, followers, and content stored as NFTs</li>
+        <li><span class="bullet">&#8226;</span> <strong>Lens Chain</strong>: ZK Stack powered (Matter Labs), Avail for data availability</li>
+        <li><span class="bullet">&#8226;</span> <strong>Open Actions</strong>: Execute smart contract calls directly from publications</li>
+        <li><span class="bullet">&#8226;</span> <strong>Gasless Transactions</strong>: Powered by GHO stablecoin</li>
+        <li><span class="bullet">&#8226;</span> <strong>Acquired by Mask Network</strong> (January 2026)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BASE APP (L2) TAB -->
+  <div class="tab-content" data-tabcontent="baseapp">
+
+    <!-- What is Base? -->
+    <div class="definition-box">
+      <h3>What is Base?</h3>
+      <p>Base is an <strong>Ethereum Layer 2</strong> built by Coinbase using the <strong>Optimism Stack</strong>. Its mission: "Bring the world onchain" — making the on-chain experience as simple as Web2. With <strong>110M+ verified Coinbase Wallet users</strong> as an onboarding funnel, Base is positioned as the gateway to mass crypto adoption.</p>
+      <p>In <strong>July 2025</strong>, Coinbase rebranded its wallet to <strong>"Base App"</strong> — signaling a shift from a simple wallet to an <em>everything app</em> combining social, trading, payments, and mini apps in one interface.</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card" data-accent="blue">
+        <div class="kpi-label">Coinbase Users</div>
+        <div class="kpi-value">110M+</div>
+        <div class="kpi-delta up">&#9650; Onboarding funnel</div>
+      </div>
+      <div class="kpi-card" data-accent="green">
+        <div class="kpi-label">Daily Active Addresses</div>
+        <div class="kpi-value">1.09M</div>
+      </div>
+      <div class="kpi-card" data-accent="purple">
+        <div class="kpi-label">Total Value Locked</div>
+        <div class="kpi-value">$11.72B</div>
+        <div class="kpi-delta up">&#9650; ~25% of L2 market</div>
+      </div>
+      <div class="kpi-card" data-accent="amber">
+        <div class="kpi-label">Waitlist</div>
+        <div class="kpi-value">1.2M</div>
+      </div>
+    </div>
+
+    <!-- Base App Features -->
+    <h3 class="subsection-heading">Base App Features</h3>
+    <div class="feature-card-grid">
+      <div class="feature-card">
+        <h4><span style="color:var(--color-primary)">&#9679;</span> All-in-One App</h4>
+        <p>Social network + trading + payments + chat + apps — all in a single interface.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:var(--color-green)">&#9679;</span> Tradeable Posts</h4>
+        <p>Any post (text, video, image) becomes a tradeable on-chain asset. Posts are stocks.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:var(--color-purple)">&#9679;</span> Creator Coins</h4>
+        <p>Tradeable profile-level tokens tied to individual creators. Fans invest in creators directly.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:var(--color-amber)">&#9679;</span> Content Coins</h4>
+        <p>Trades of content generate revenue that flows back to creators on every transaction.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:var(--color-cyan)">&#9679;</span> Mini Apps</h4>
+        <p>40% of beta users use mini apps. Interactive experiences embedded in the social feed.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:var(--color-red)">&#9679;</span> Farcaster Integration</h4>
+        <p>Identity + social + trading unified across Web3 via Farcaster protocol integration.</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))">
+      <div class="kpi-card" data-accent="green">
+        <div class="kpi-label">Creator Earnings</div>
+        <div class="kpi-value">$500K+</div>
+      </div>
+      <div class="kpi-card" data-accent="purple">
+        <div class="kpi-label">Engagement vs Web2</div>
+        <div class="kpi-value">4x</div>
+      </div>
+      <div class="kpi-card" data-accent="cyan">
+        <div class="kpi-label">Mini App Usage</div>
+        <div class="kpi-value">40%</div>
+        <div class="kpi-delta up">&#9650; Of beta users</div>
+      </div>
+    </div>
+
+    <!-- Creator Economy Ecosystem -->
+    <h3 class="subsection-heading">Creator Economy Ecosystem</h3>
+    <div class="content-grid">
+      <div class="content-card">
+        <h3><span style="color:var(--color-primary)">&#9670;</span> Zora</h3>
+        <p>Integrated into Base architecture for tokenizing, trading, and posting content. Any content becomes a mintable/tradeable asset on Base.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-purple)">&#9670;</span> NFT Platforms</h3>
+        <p><strong>Rodeo</strong>, <strong>Vibe.market</strong>, <strong>Manifold</strong>, <strong>Highlight</strong> — platforms for minting, earning, and trading NFTs within the Base ecosystem.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-amber)">&#9670;</span> Kaito Yaps</h3>
+        <p>Tweet-to-earn platform with AI-powered information discovery. Earn <strong>Yap Points</strong> for sharing valuable insights and analysis.</p>
+      </div>
+      <div class="content-card">
+        <h3><span style="color:var(--color-green)">&#9670;</span> Own.App</h3>
+        <p>"The New Social Standard" — a gamified, decentralized TikTok alternative where creators own everything they post and earn.</p>
+      </div>
+    </div>
+
+    <div class="blockquote">
+      <p>"95% of value captured by platforms. On-chain social flips that — 95% goes to creators, content is instantly monetized."</p>
+      <cite>— Jesse Pollak, Creator of Base</cite>
+    </div>
+  </div>
+
+  <!-- WHY WEB3 SOCIAL MATTERS — outside tabs, visually prominent -->
+  <h3 class="subsection-heading">Why Web3 Social Matters — Use Cases</h3>
+  <div class="usecase-grid">
+    <div class="usecase-card">
+      <div class="usecase-num">1</div>
+      <div class="usecase-body">
+        <h4>Data Ownership</h4>
+        <p>Own your followers, content, and identity across platforms — no platform lock-in.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">2</div>
+      <div class="usecase-body">
+        <h4>Creator Monetization</h4>
+        <p>95% to creators vs ~5-20% on Web2. Direct fan-to-creator payments without intermediaries.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">3</div>
+      <div class="usecase-body">
+        <h4>Composable Social Graphs</h4>
+        <p>Your social connections work across any app built on the protocol. One graph, many apps.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">4</div>
+      <div class="usecase-body">
+        <h4>Token-Gated Communities</h4>
+        <p>Exclusive access based on token holdings. Aligns community and economic incentives.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">5</div>
+      <div class="usecase-body">
+        <h4>SocialFi</h4>
+        <p>Social interactions carry economic value — likes, shares, and posts become earnings.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">6</div>
+      <div class="usecase-body">
+        <h4>Decentralized Identity</h4>
+        <p>ENS names, on-chain reputation — portable and verifiable across platforms.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">7</div>
+      <div class="usecase-body">
+        <h4>Mini Apps / Frames</h4>
+        <p>Interactive apps embedded in social feeds — games, polls, mints, trades all in-feed.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">8</div>
+      <div class="usecase-body">
+        <h4>Censorship Resistance</h4>
+        <p>No single entity controls content moderation. Decentralized governance of social norms.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">9</div>
+      <div class="usecase-body">
+        <h4>Transparent Algorithms</h4>
+        <p>Open-source recommendation systems. Users can see and control how content is surfaced.</p>
+      </div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-num">10</div>
+      <div class="usecase-body">
+        <h4>Cross-Platform Interoperability</h4>
+        <p>Post once, appear everywhere. Content and identity flow across all compatible apps.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real-World Examples -->
+  <h3 class="subsection-heading">Real-World Examples</h3>
+  <div class="example-grid">
+    <div class="example-card">
+      <h4>Farcaster Frames</h4>
+      <p>One-tap NFT mints, voting polls, and embedded games — all inside the social feed without leaving the app.</p>
+    </div>
+    <div class="example-card">
+      <h4>Base App</h4>
+      <p>Trade someone's post like a stock. The creator earns revenue from every trade of their content.</p>
+    </div>
+    <div class="example-card">
+      <h4>Lens Open Actions</h4>
+      <p>Embed smart contract calls directly in social posts — tip, buy, or subscribe in one click.</p>
+    </div>
+    <div class="example-card">
+      <h4>Kaito Yaps</h4>
+      <p>Earn crypto by sharing valuable insights and analysis. AI evaluates contribution quality.</p>
+    </div>
+    <div class="example-card">
+      <h4>Own.App</h4>
+      <p>Create and post like TikTok, but you own everything — content, audience, and earnings.</p>
+    </div>
+    <div class="example-card">
+      <h4>Zora on Base</h4>
+      <p>Tokenize any content as a mintable and tradeable on-chain asset. Create once, earn forever.</p>
+    </div>
+  </div>
+
+  <!-- Challenges -->
+  <h3 class="subsection-heading">Challenges</h3>
+  <div class="info-callout">
+    <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>
+      <p><strong>Cold Start Problem:</strong> Neither Farcaster nor Lens has achieved &gt;100K sustained DAU. For comparison, X (Twitter) has 250M DAU and Instagram 2B MAU.</p>
+      <p style="margin-top:var(--space-2)"><strong>UX Gap:</strong> Wallet management, gas fees, and key custody remain significant barriers for mainstream adoption. The "onboarding cliff" is steep.</p>
+    </div>
+  </div>
+
+  <div class="dashboard-footer">
+    <p>Learn more: <a href="https://www.farcaster.xyz/" target="_blank" rel="noopener noreferrer">Farcaster</a> &middot; <a href="https://www.lens.xyz/" target="_blank" rel="noopener noreferrer">Lens Protocol</a> &middot; <a href="https://www.base.org/" target="_blank" rel="noopener noreferrer">Base</a></p>
+
+      <p style="margin-top:var(--space-2)">Created by Saswat.lens. Please refer to <a href="https://paragraph.com/@latam" target="_blank" rel="noopener noreferrer">paragraph.com/@latam</a> for our next class.</p>
+  </div>
+</section>
+
+<!-- ==================== SECTION 6: RESOURCES / GLOSSARY ==================== -->
+<section class="section" id="resources">
+  <div class="section-header">
+    <h2>Resources & Glossary</h2>
+    <p>Quick reference for blockchain and DeFi terminology, plus external resources for deeper learning.</p>
+  </div>
+
+  <!-- Glossary -->
+  <h3 class="subsection-heading">Glossary</h3>
+  <div class="glossary-grid">
+    <div class="glossary-item">
+      <dt>AMM</dt>
+      <dd>Automated Market Maker. A protocol that uses mathematical formulas and liquidity pools to enable decentralized token swaps.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>TVL</dt>
+      <dd>Total Value Locked. The total value of crypto assets deposited in a DeFi protocol's smart contracts.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Flash Loan</dt>
+      <dd>An uncollateralized loan that must be borrowed and repaid within a single blockchain transaction.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Impermanent Loss</dt>
+      <dd>The temporary loss of value that liquidity providers experience when the price ratio of pooled assets changes.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Liquidity Pool</dt>
+      <dd>A smart contract holding paired tokens that enables decentralized trading. Providers earn fees.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Yield Farming</dt>
+      <dd>Earning returns by providing liquidity or staking tokens in DeFi protocols. Often involves multiple strategies.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Smart Contract</dt>
+      <dd>Self-executing code on a blockchain that automatically enforces the terms of an agreement.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Token</dt>
+      <dd>A digital asset on a blockchain. Can represent currency (ERC-20), collectibles (ERC-721), or governance rights.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>NFT</dt>
+      <dd>Non-Fungible Token. A unique, indivisible digital asset on a blockchain, often used for art, identity, or deeds.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>DAO</dt>
+      <dd>Decentralized Autonomous Organization. A governance structure where token holders vote on protocol decisions.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>MEV</dt>
+      <dd>Maximal Extractable Value. Profit validators can extract by reordering, inserting, or censoring transactions.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Oracle</dt>
+      <dd>A service that provides off-chain data to smart contracts. Chainlink is the dominant oracle network.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>RWA</dt>
+      <dd>Real World Assets. Physical assets (bonds, real estate, commodities) tokenized and brought on-chain.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Stablecoin</dt>
+      <dd>A token pegged to a stable asset (usually USD). Types: fiat-backed (USDC), algorithmic (GHO), over-collateralized (DAI).</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Gas</dt>
+      <dd>The fee paid to validators for processing transactions on a blockchain. Measured in gwei on Ethereum.</dd>
+    </div>
+    <div class="glossary-item">
+      <dt>Hooks (Uniswap)</dt>
+      <dd>Smart contract plugins that customize pool behavior at specific lifecycle points (before/after swap, etc.).</dd>
+    </div>
+  </div>
+
+  <!-- External Links -->
+  <h3 class="subsection-heading">External Resources</h3>
+  <div class="links-grid">
+    <a href="https://defillama.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="link-info">
+        <h4>DefiLlama</h4>
+        <span>DeFi analytics & data</span>
+      </div>
+    </a>
+    <a href="https://docs.uniswap.org/" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <div class="link-info">
+        <h4>Uniswap Docs</h4>
+        <span>Protocol documentation</span>
+      </div>
+    </a>
+    <a href="https://docs.aave.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      </div>
+      <div class="link-info">
+        <h4>Aave Docs</h4>
+        <span>Lending protocol docs</span>
+      </div>
+    </a>
+    <a href="https://www.farcaster.xyz/" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+      </div>
+      <div class="link-info">
+        <h4>Farcaster</h4>
+        <span>Decentralized social protocol</span>
+      </div>
+    </a>
+    <a href="https://www.lens.xyz/" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="link-info">
+        <h4>Lens Protocol</h4>
+        <span>Web3 social graph</span>
+      </div>
+    </a>
+    <a href="https://ethereum.org/" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="link-info">
+        <h4>Ethereum.org</h4>
+        <span>Ethereum documentation</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Data Sources -->
+  <h3 class="subsection-heading">Data Sources & Attribution</h3>
+  <div class="content-card" style="margin-bottom:var(--space-4)">
+    <p>All data in this dashboard is sourced from publicly available APIs and research reports for educational purposes:</p>
+    <ul class="feature-list">
+      <li><span class="bullet">&#8226;</span> <a href="https://defillama.com/" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary)">DefiLlama</a> — Chain TVL, protocol TVL, DEX volume data</li>
+      <li><span class="bullet">&#8226;</span> <a href="https://www.mexc.com/" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary)">MEXC Research</a> — Top DeFi protocols rankings (Feb 2026)</li>
+      <li><span class="bullet">&#8226;</span> BlackRock, JPMorgan, Circle — Institutional adoption data from public filings</li>
+      <li><span class="bullet">&#8226;</span> Uniswap & Aave documentation — Protocol technical details</li>
+      <li><span class="bullet">&#8226;</span> Farcaster & Lens Protocol — Web3 social media metrics</li>
+    </ul>
+  </div>
+
+  <div class="dashboard-footer">
+    <p>Blockchain & DeFi Dashboard for MBA Course &middot; Tec de Monterrey &middot; March 2026</p>
+      <p style="margin-top:var(--space-2)">Created by Saswat.lens. Please refer to <a href="https://paragraph.com/@latam" target="_blank" rel="noopener noreferrer">paragraph.com/@latam</a> for our next class.</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
